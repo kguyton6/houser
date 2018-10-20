@@ -1,0 +1,78 @@
+
+
+.register-header {
+    position: relative;
+    background-color: #509871;
+    width: 100vw;
+    height: 80px;
+    font-size: 48px;
+    color: white;
+    justify-content: center;
+
+
+
+}
+.header-text {
+    position: absolute;
+    left: 26%;
+    top: 26%
+}
+
+img.head-logo {
+        width: 50px;
+        position: absolute;
+        left: 20%;
+        bottom: 20%;
+}
+
+.title {
+    font-size: 36px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 100vh;
+    background-color: #E3F3EC;
+    align-items: center;
+    text-align: left;
+}
+
+.register-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50vw;
+}
+.login-inputs {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 16px;
+    text-indent: 10px;
+    color: black;
+    margin-top: 6%;
+
+
+}
+
+input.register-input {
+    width: 300px;
+    height: 20px;
+    border-color: #5CA07D;
+    border-style: solid;
+    margin-bottom: 10px;
+   
+}
+button.submit {
+    background-color: #3B5148;
+    color: white;
+    width: 130px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 50px;
+}

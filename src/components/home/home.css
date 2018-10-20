@@ -1,0 +1,94 @@
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #AFD5C0;
+
+}
+
+.home-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 100vh;
+    width: 60vw;
+    justify-content: center;
+    align-items: center;
+}
+
+button.login {
+    background-color: #81E992;
+    width: 130px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+button.register {
+    background-color: #3B5148;
+    color: white;
+    width: 130px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.home-buttons {
+    margin-top: 20px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.login-inputs {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 16px;
+    text-indent: 10px;
+
+}
+
+.img-box {
+    position: relative;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 225px;
+    margin-left: 9%;
+
+}
+
+
+img.houser {
+     height: 15vw;
+    width: 15vw;
+
+
+}
+
+input.home-input {
+    width: 40vw;
+    height: 30px;
+    border-color: #5CA07D;
+    border-style: solid;
+    margin-bottom: 30px;
+    font-size: 16px;
+   
+}
+.inputs {
+    height: 20px;
+    width: 40vw;
+    border-color: #569B75;
+    border-style: solid;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+

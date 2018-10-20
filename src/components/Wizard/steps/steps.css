@@ -1,0 +1,91 @@
+.img-container  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 325px;
+    background-color: #DEDEDE;
+    font-size: 15px;
+    color:#B2B3B4;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-style: solid;
+    border-color: #5C9F7C;
+    border-width: .8px;
+
+}
+
+
+
+.address-container1 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+}
+.address-container2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+}
+.inputs-step4   {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    font-size: 28px;
+
+    
+}
+.city, .state, .zipcode {
+    height: 20px;
+    width: 14vw;
+    border-color: #569B75;
+    border-style: solid;
+}
+
+/* .zipcode {
+    height: 20px;
+    width: 14vw;
+    border-color: #569B75;
+    border-style: solid;
+} */
+
+
+.address {
+    height: 20px;
+    border-color: #569B75;
+    border-style: solid;
+
+}
+
+div.city-box, .state-box {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+/* div.state-box {
+    display: flex;
+    flex-direction: column;
+
+} */
+div.city-state  {
+    display: flex;
+    width: 40vw;
+    justify-content: space-between;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    
+    
+}
+
+button.complete {
+    background-color: #63F38A;
+    font-size: 16px;
+    width: 125px;
+    border-radius: 4px;
+    height: 40px;
+    margin-top: 40px;
+    text-align: center;
+}

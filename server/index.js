@@ -1,22 +1,31 @@
 require('dotenv').config()
 const massive = require('massive')
 const express = require('express')
-const app = express()
 const bodyParser = require('body-parser')
-const HashRouter = require('hashrouter')
-
+const session = require('express-session')
+const ctrl = require('./controller')
+const app = express()
 
 massive(process.env.CONNECTION_STRING).then(dbInstance => {
     app.set('db', dbInstance)
 }).catch(err => console.log(err))
+
 app.use(bodyParser.json())
 
+app.use(session({
+    secret: 'session secret',
+    resave: false,
+    saveUninitialized: false
+}))
 
 
 
 
-
-
+app.get('/api/listings', ctrl.all_listings)
+app.post('/api/listings', ctrl.newListing)
+app.delete('/api/listing/:id', ctrl.delete_listing)
+app.post('/api/login', ctrl.get_user)
+app.post('/api/register', ctrl.create_user)
 
 const PORT = process.env.SERVER_PORT || 4800
 
