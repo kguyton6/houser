@@ -9,15 +9,9 @@ import {connect} from 'react-redux'
 
 
 class Step3 extends Component {
-   constructor(props){
-       super(props)
-
-      
-
-   }
-
+  
     render() {
-        const {addImage, image } = this.props
+        const {addImage} = this.props
         return (
             <div className='App'>
                 <div className='dashboard-header'>
@@ -29,25 +23,23 @@ class Step3 extends Component {
                 Add New Listing
            <Link to='/dashboard' ><button className='cancel'>Cancel</button></Link>
                         </span>
-                        <div className='steps'>
-                            <span className='wizard-span'> Step 3</span>
-                            {/* { this.req.match.params.id } */}
-                            <img className='step-logo' src={complete} alt='active' />
-                            <img className='step-logo' src={complete} alt='active' />
-                            <img className='step-logo' src={active} alt='active' />
-                            <img className='step-logo' src={inactive} alt='inactve' />
-                            <img className='step-logo' src={inactive} alt='inactve' />
+                        <div className='step3'>
+                            <span className='step-location'> Step 3</span>
+                            <img className='step-logo3' src={complete} alt='active' />
+                            <img className='step-logo3' src={complete} alt='active' />
+                            <img className='step-logo3' src={active} alt='active' />
+                            <img className='step-logo3' src={inactive} alt='inactve' />
+                            <img className='step-logo3' src={inactive} alt='inactve' />
                         </div>
                     <div className='wizard-main'>
                 <div className='inputs-step4'>
-               { this.props.image !== null ?
                 <div className='img-container'>
-                <img src={image} alt='Preview' width='auto' height='325px'/></div> :
-                <div className='img-container'>
-                <span className='preview' >Preview</span></div> }
+                <img src={this.props.image_url} value={this.props.image_url} alt='' width='100%' height='100%'/> 
+              </div>
+
                     <br/>
                     Image URL
-            <input className='inputs' value={this.props.image} onChange={(e) => addImage(e.target.value)} /></div>
+            <input className='inputs' value={this.props.image_url} onChange={(e) => addImage(e.target.value)} /></div>
             <div className='button-container'>
                         <Link to='/step/2' ><button className='previous'>Previous Step</button></Link>
             <Link to='/step/4' ><button className='next'>Next Step</button></Link>
@@ -63,7 +55,7 @@ class Step3 extends Component {
 export function mapStateToProps(state){
     console.log(state)
     return {
-        image: state.image
+        image_url: state.image_url
     }
 }
 const mapDispatchToProps = dispatch => {

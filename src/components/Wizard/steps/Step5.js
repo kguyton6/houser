@@ -6,54 +6,44 @@ import complete from '../step_completed.png'
 import active from '../step_active.png'
 import { connect } from 'react-redux'
 import axios from 'axios'
-import session from 'redux-react-session'
+
 
 class Step5 extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            name: this.props.name,
-            description: this.props.description,
-            address: this.props.address,
-            city: this.props.city,
-            State: this.props.State,
-            zipcode: this.props.zipcode,
-            image: this.props.image,
-            mortgage: this.props.mortgage,
-            loan: this.props.loan,
-            rent: this.props.rent
-        }
+
         this.handleClick = this.handleClick.bind(this)
 
     }
 
 
     handleClick() {
+        console.log(this.state)
         axios.post('/api/listings', {
-            name: this.state.name,
-            description: this.state.description,
-            address: this.state.address,
-            city: this.state.city,
-            State: this.state.State,
-            zipcode: this.state.zipcode,
-            image: this.state.image,
-            mortgage: this.state.mortgage,
-            loan: this.state.loan,
-            rent: this.state.rent
+            property_name: this.props.property_name,
+            description: this.props.description,
+            address: this.props.address,
+            city: this.props.city,
+            State: this.props.State,
+            zipcode: this.props.zipcode,
+            image_url: this.props.image_url,
+            loan_amount: this.props.loan_amount,
+            monthly_mortgage: this.props.monthly_mortgage,
+            rent: this.props.rent
         })
             .then((response) => {
                 if (response.status === 200) {
                     alert('Listing Added Successfully')
-                    this.props.history.push('/dashboard')
+                    this.props.history.push('/step/dashboard')
                 }
-            }
-            )
+            })
     }
 
     render() {
+        console.log(this.props)
         console.log(this.state)
-
+        const recommendedRent = this.props.monthly_mortgage * 1.25
         const { addRent } = this.props
         return (
             <div className='App'>
@@ -68,21 +58,24 @@ class Step5 extends Component {
                     </span>
                     <div className='wizard-main'>
                         <div className='steps'>
-                            <span className='wizard-span'> Step 5</span><br />
+                            <span className='step-location'> Step 5</span><br />
                             <img className='step-logo' src={complete} alt='active' />
                             <img className='step-logo' src={complete} alt='active' />
                             <img className='step-logo' src={complete} alt='active' />
                             <img className='step-logo' src={complete} alt='active' />
                             <img className='step-logo' src={active} alt='active' />
                         </div>
-                        <span className='rent-text'> Recommended Rent </span><br /><br /><br /><br />
+                        <span className='rent-text'> Recommended Rent ${recommendedRent} </span><br /><br /><br /><br />
                         <div className='inputs-step4'>
                             Desired Rent
-            <input className='inputs' value={this.props.rent} onChange={(e) => addRent(e.target.value)} /></div>
-
+                            <div className='symbol-container'>
+                                <span className='symbol'>$</span>
+                                <input className='number-inputs' type='number' placeholder='0' value={this.props.rent} onChange={(e) => addRent(e.target.value)} />
+                            </div>
+                        </div>
                         <div className='button-container'>
                             <Link to='/step/4' ><button className='previous'>Previous Step</button></Link>
-                            <Link to='/dashboard'> <button onClick={this.handleClick} className='complete'>Complete</button></Link>
+                            <button onClick={this.handleClick} className='complete'>Complete</button>
                         </div>
                     </div>
                 </div>
@@ -94,15 +87,15 @@ class Step5 extends Component {
 }
 export function mapStateToProps(state) {
     return {
-        name: state.name,
+        property_name: state.property_name,
         description: state.description,
         address: state.address,
         city: state.city,
         State: state.State,
         zipcode: state.zipcode,
-        image: state.image,
-        mortgage: state.mortgage,
-        loan: state.loan,
+        image_url: state.image_url,
+        loan_amount: state.loan_amount,
+        monthly_mortgage: state.monthly_mortgage,
         rent: state.rent
     }
 }

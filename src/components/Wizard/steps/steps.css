@@ -14,8 +14,6 @@
 
 }
 
-
-
 .address-container1 {
     display: flex;
     flex-direction: column;
@@ -33,9 +31,9 @@
     flex-direction: column;
     width: 40vw;
     font-size: 28px;
-
-    
+ 
 }
+
 .city, .state, .zipcode {
     height: 20px;
     width: 14vw;
@@ -43,12 +41,6 @@
     border-style: solid;
 }
 
-/* .zipcode {
-    height: 20px;
-    width: 14vw;
-    border-color: #569B75;
-    border-style: solid;
-} */
 
 
 .address {
@@ -63,11 +55,7 @@ div.city-box, .state-box {
     flex-direction: column;
     width: auto;
 }
-/* div.state-box {
-    display: flex;
-    flex-direction: column;
 
-} */
 div.city-state  {
     display: flex;
     width: 40vw;
@@ -88,4 +76,28 @@ button.complete {
     height: 40px;
     margin-top: 40px;
     text-align: center;
+}
+.symbol-container {
+    position: relative;
+    width: inherit;
+    height: 30px;
+}
+.symbol {
+    position: absolute;
+    font-size: 12px;
+    top: 50%;
+    left: 1%;
+    color: rgb(63, 63, 63);
+
+}
+
+.number-inputs {
+    height: 20px;
+    width: 40vw;
+    border-color: #569B75;
+    border-style: solid;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    font-size: 12px;
+    text-indent: 2.5%;
 }

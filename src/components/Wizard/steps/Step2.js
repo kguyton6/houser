@@ -10,13 +10,7 @@ import { connect } from 'react-redux'
 
 
 class Step2 extends Component {
-    constructor(props){
-        super(props)
-
- 
-        }
-
-
+    
     render() {
         const {addAddress, addCity, addState, addZip} = this.props
         return (
@@ -31,8 +25,7 @@ class Step2 extends Component {
            <Link to='/dashboard' ><button className='cancel'>Cancel</button></Link>
                     </span>
                     <div className='steps'>
-                        <span className='wizard-span'> Step 2</span>
-                        {/* { this.req.match.params.id } */}
+                        <span className='step-location'> Step 2</span>
                         <img className='step-logo' src={complete} alt='active' />
                         <img className='step-logo' src={active} alt='active' />
                         <img className='step-logo' src={inactive} alt='inactive' />
@@ -51,7 +44,7 @@ class Step2 extends Component {
                             <input className='state' value={this.props.State}onChange={(e) => addState(e.target.value)} /></div>
                             </div>
                             Zipcode
-            <input className='zipcode' value={this.props.zipcode}onChange={(e) => addZip(e.target.value)} />
+            <input className='zipcode' type='number' value={this.props.zipcode}onChange={(e) => addZip(e.target.value)} />
                         </div>
 
                     <div className='button-container'>

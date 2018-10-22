@@ -1,14 +1,15 @@
 const initialState = {
-    name: '',
+    property_name: '',
    description: '',
    address: '',
    city:'',
    State: '',
    zipcode: null, 
-   image: '',
-   mortgage: '',
-   loan: '',
-   rent: ''
+   image_url: '',
+   loan_amount: '',
+   monthly_mortgage: '',
+   rent: null,
+
 }
 
 
@@ -24,11 +25,14 @@ export const ADD_LOAN = 'ADD_LOAN'
 export const ADD_RENT = 'ADD_RENT'
 
 
+
+
 const rootReducer = (state = initialState, action) => {
     console.log('REDUCER HIT: Action ->', action );
     switch (action.type) {
         case ADD_NAME:
-        return Object.assign({}, state,{ name: action.payload })
+        return Object.assign({}, state, {property_name: action.payload })
+       
         case ADD_DESCRIPTION:
         return Object.assign({}, state, {description: action.payload})
 
@@ -45,25 +49,22 @@ const rootReducer = (state = initialState, action) => {
         return Object.assign({}, state, {zipcode: action.payload})
 
         case ADD_IMAGE:
-        return Object.assign({}, state, {image: action.payload})
+        return Object.assign({}, state, {image_url: action.payload})
 
         case ADD_MORTGAGE:
-        return Object.assign({}, state, {mortgage: action.payload})
+        return Object.assign({}, state, {monthly_mortgage: action.payload})
 
         case ADD_LOAN:
-        return Object.assign({}, state, {loan: action.payload})
+        return Object.assign({}, state, {loan_amount: action.payload})
 
         case ADD_RENT:
         return Object.assign({}, state, {rent: action.payload})
+
        default: return state
     }
 }
 
-export function addName(name) { 
-    return {
-        type: ADD_NAME, payload: name 
-    }
-}
+export const addName = property_name => ({ type: ADD_NAME, payload: property_name })
 export const addDescription = description => ({type: ADD_DESCRIPTION, payload: description})
 
 export const addAddress = address => ({type: ADD_ADDRESS, payload: address})
@@ -76,12 +77,13 @@ export const addZip = zipcode => ({
     type: ADD_ZIP, payload: zipcode
 })
 
-export const addImage = image => ({type: ADD_IMAGE, payload: image})
+export const addImage = image_url => ({type: ADD_IMAGE, payload: image_url})
 
-export const addMortgage = mortgage => ({type: ADD_MORTGAGE, payload: mortgage})
+export const addMortgage = monthly_mortgage => ({type: ADD_MORTGAGE, payload: monthly_mortgage})
 
-export const addLoan = loan => ({type: ADD_LOAN, payload: loan})
+export const addLoan = loan_amount => ({type: ADD_LOAN, payload: loan_amount})
 
 export const addRent = rent => ({type: ADD_RENT, payload: rent})
 
+// export const recommendRent = recommendRent => ({type: RECOMMENDED_RENT, payload: recommendRent  })
 export default rootReducer;

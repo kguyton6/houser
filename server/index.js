@@ -22,8 +22,9 @@ app.use(session({
 
 
 app.get('/api/listings', ctrl.all_listings)
+app.post('/api/rent', ctrl.get_listing)
 app.post('/api/listings', ctrl.newListing)
-app.delete('/api/listing/:id', ctrl.delete_listing)
+app.delete('/api/delete/:id', ctrl.delete_listing)
 app.post('/api/login', ctrl.get_user)
 app.post('/api/register', ctrl.create_user)
 

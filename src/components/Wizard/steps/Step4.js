@@ -5,21 +5,15 @@ import active from '../step_active.png'
 import inactive from '../step_inactive.png'
 import complete from '../step_completed.png'
 import head_title from '../head_title.png'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 
 
 
 class Step4 extends Component {
-  constructor(props){
-      super(props)
 
-    //   this.addLoan = this.addLoan.bind(this)
-    //   this.addMortgage = this.addMortgage.bind(this)
-  }
- 
     render() {
-        const {addLoan, addMortgage, loan, mortgage } = this.props
+        const { addLoan, addMortgage, loan_amount, monthly_mortgage } = this.props
         return (
             <div className='App'>
                 <div className='dashboard-header'>
@@ -32,8 +26,7 @@ class Step4 extends Component {
            <Link to='/dashboard' ><button className='cancel'>Cancel</button></Link>
                     </span>
                     <div className='steps'>
-                        <span className='wizard-span'> Step 4</span>
-                        {/* { this.req.match.params.id } */}
+                        <span className='step-location'> Step 4</span>
                         <img className='step-logo' src={complete} alt='active' />
                         <img className='step-logo' src={complete} alt='active' />
                         <img className='step-logo' src={complete} alt='active' />
@@ -42,34 +35,40 @@ class Step4 extends Component {
                     </div>
                     <div className='wizard-main'>
                         <div className='inputs-step4'>
-                            Monthly Mortgage 
-                              <input className='inputs' value={mortgage} onChange={(e) => addMortgage(e.target.value)} />
-                              <br/>
+                            Monthly Mortgage
+                            <div className='symbol-container'>
+                            <span className='symbol'>$</span>
+                              <input className='number-inputs' type='number' placeholder='0.00' value={monthly_mortgage} onChange={(e) => addMortgage(e.target.value)} />
+                              </div>
+                            <br />
                             Loan Amount
-                              <input className='inputs' value={loan} onChange={(e) => addLoan(e.target.value)} />
+                            <div className='symbol-container'>
+                            <span className='symbol'>$</span>
+                              <input className='number-inputs' type='number' placeholder='0.00' value={loan_amount} onChange={(e) => addLoan(e.target.value)}/>
+                              </div>
 
                         </div>
-                            <div className='button-container'>
-                                <Link to='/step/3' ><button className='previous'>Previous Step</button></Link>
-                                <Link to='/step/5' ><button className='next'>Next Step</button></Link>
-                            </div>
-                     
+                        <div className='button-container'>
+                            <Link to='/step/3' ><button className='previous'>Previous Step</button></Link>
+                            <Link to='/step/5' ><button className='next'>Next Step</button></Link>
+                        </div>
+
                     </div>
                 </div>
             </div>
         )
     }
 }
-function mapStateToProps (state){
+function mapStateToProps(state) {
     console.log(state)
     return {
-        mortgage: state.mortgage,
-        loan: state.loan
+        monthly_mortgage: state.monthly_mortgage,
+        loan_amount: state.loan_amount
     }
 }
 const mapDispatchToProps = (dispatch) => ({
-    addMortgage: mortgage => dispatch ({type: 'ADD_MORTGAGE', payload: mortgage}),
-    addLoan: loan => dispatch ({type: 'ADD_LOAN', payload: loan})
+    addMortgage: monthly_mortgage => dispatch({ type: 'ADD_MORTGAGE', payload: monthly_mortgage }),
+    addLoan: loan_amount => dispatch({ type: 'ADD_LOAN', payload: loan_amount })
 })
 
 

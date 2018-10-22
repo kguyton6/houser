@@ -9,15 +9,6 @@ import { connect } from 'react-redux'
 
 
 class Wizard extends Component {
-    constructor(props){
-        super(props)
-
-
-        // this.addDescription = this.addDescription.bind(this)
-        // this.addName = this.addName.bind(this)
-        }
-
-
    
     render() {
         const { addName, addDescription } = this.props 
@@ -29,13 +20,12 @@ class Wizard extends Component {
                 </div>
                 <div className='wizard-container'>
                         <span className='top-container'>
-                            Add new listing
+                            Add New Listing
            <Link to='/dashboard' ><button className='cancel'>Cancel</button></Link>
                         </span>
                     <div className='wizard-main'>
                         <div className='steps'>
-                            <span className='wizard-span'> Step 1</span>
-
+                            <span className='step-location'> Step 1</span>
                             <img className='step-logo' src={active} alt='active' />
                             <img className='step-logo' src={inactive} alt='inactve' />
                             <img className='step-logo' src={inactive} alt='inactve' />
@@ -45,7 +35,7 @@ class Wizard extends Component {
 
 
                            Property Name
-            <input className='property-name' value={this.props.name}onChange={(e) => addName(e.target.value)} />
+            <input className='property-name' value={this.props.property_name}onChange={(e) => addName(e.target.value)} />
                           Property description
             <textarea className='description' value={this.props.description}onChange={(e) => addDescription(e.target.value)} ></textarea>
           <Link to='/step/2' ><button className='next'>Next Step</button></Link> 

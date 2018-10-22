@@ -1,3 +1,3 @@
 select * from Houser_listings
-where listing_id=$1
+where user_id = $1 and rent <= $2
  
